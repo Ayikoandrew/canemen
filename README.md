@@ -1,2 +1,2 @@
 # canemen
-Sugarcane management appliction
+Sugarcane management application
