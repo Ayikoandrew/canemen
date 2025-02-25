@@ -1,0 +1,51 @@
+workflows:
+  flutter-workflow:
+    name: Flutter Workflow
+    environment:
+      flutter: 3.29.0
+      java: 17
+
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+
+    scripts:
+      - name: Install dependecies
+        script: |
+          flutter clean
+          flutter pub get
+
+      - name: Build Kotlin Files
+        script: |
+          cd android
+          ./gradlew assembleRelease
+          cd ..
+
+      - name: Run Tests
+        script: flutter test
+
+      - name: Build Android APK
+        script: flutter build apk --release
+
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+      - android/app/build/outputs/apk/release/app-release.apk
+
+    publishing:
+      email:
+        recipients:
+          - gibz1551@gmail.com
+          - andrewayik15@gmail.com
+        notify:
+          success: true
+          failure: true
+
+    cache:
+      cache_paths:
+        - ~/.pub-cache
+        - .dart_tool
+        - build
+        - android/.gradle
+        - android/build
