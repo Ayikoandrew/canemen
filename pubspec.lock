@@ -131,6 +131,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.16.0"
+  minimal_mvn:
+    dependency: "direct main"
+    description:
+      name: minimal_mvn
+      sha256: "492e58f9955726609d83588a905d410dabd75d2a26e868540e1418b92374b4c0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   path:
     dependency: transitive
     description:
@@ -210,4 +218,4 @@ packages:
     version: "14.3.1"
 sdks:
   dart: ">=3.7.0 <4.0.0"
-  flutter: ">=3.18.0-18.0.pre.54"
+  flutter: ">=3.19.0"
